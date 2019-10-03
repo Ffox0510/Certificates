@@ -1,0 +1,25 @@
+PS Cert:\> Get-ChildItem -recurse | Where-Object {$_.NotAfter -lt (get-date).addDays(-7215)  -and $_.Notbefore -gt (get-date).addDays(-9406)}
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\Root
+
+Thumbprint                                Subject
+----------                                -------
+7F88CD7223F3C813818C994614A89C99FA3B5247  CN=Microsoft Authenticode(tm) Root Authority, O=MSFT, C=US
+245C97DF7514E7CF2DF8BE72AE957B9E04741E85  OU=Copyright (c) 1997 Microsoft Corp., OU=Microsoft Time Stamping Service Root, OU=Micro...
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\Root
+
+Thumbprint                                Subject
+----------                                -------
+7F88CD7223F3C813818C994614A89C99FA3B5247  CN=Microsoft Authenticode(tm) Root Authority, O=MSFT, C=US
+245C97DF7514E7CF2DF8BE72AE957B9E04741E85  OU=Copyright (c) 1997 Microsoft Corp., OU=Microsoft Time Stamping Service Root, OU=Micro...
+
+Get the dates between a select range in the Certificate authority Directory. 
+Gets the certificates valid between 01/01/2000, and 01/01/1994.
+
+after 01/01/2000 (-7215) it won't get any certificates
+before 01/01/1994 (-9406) it won't get any certificates 
+
+It will only get certificates between the selected days
